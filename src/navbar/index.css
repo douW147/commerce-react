@@ -1,0 +1,47 @@
+.navbar-edited{
+    background: rgba(26, 26, 37, 1)!important;
+    color: #fff!important;
+    padding:1.5% 5%;
+}
+
+a{
+    color: #fff!important;
+}
+
+.logout{
+    display: flex;
+    flex-direction: row;
+}
+
+.space-between{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.active{
+    border-bottom: 2px solid #fff;
+}
+
+.dropdown{
+    width: 200px
+}
+
+.dropdown-toggle{
+    color: rgba(26, 26, 37, 1);
+    background-color: #fff;
+}
+
+.dropdown-item{
+    color:rgba(26, 26, 37, 1)!important;  
+}
+
+
+.dropdown-menu{
+    width: 200px;
+}
+
+.--width100{
+    width: 100%
+}
