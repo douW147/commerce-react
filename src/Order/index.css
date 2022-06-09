@@ -1,3 +1,32 @@
 .width-auto{
     width: auto;
 }
+
+.buy-button{
+    width: 100px;
+    margin-left: 10px;
+}
+
+.quantity{
+    width: auto;
+}
+
+.quantity-arrows{
+    display: inline-flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    top: -18px;
+    left: 10px;
+}
+
+.fa{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.quantity-rating{
+    height: 40px;
+}

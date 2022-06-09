@@ -26,18 +26,37 @@ function Dashboard() {
         }     
     }, [UserContex.user.userId] )
 
-    const renderOrder = (orders) => {
-        return orders.map(ord => {
-            return (<Order key={ord.id} name={ord.product.productName} price={ord.product.price} brandId={ord.product.brandId}
-                categoryId={ord.product.categoryId} rating={ord.product.rating} quantity={ord.quantity}
-            />)}
-        )
-    }
+    const onBuyClick = useCallback(async(isPaymentCompleted, quantity, id, userId, productId) => {
+        const newOrderData = {
+            id: id,
+            userId: userId,
+            productId: productId,
+            quantity: quantity,
+            isPaymentCompleted: isPaymentCompleted,
+        }
+        const response = await fetch(`http://localhost:5000/orders/${id}`, {
+            method: "PUT",
+            body: JSON.stringify(newOrderData),
+            headers: {"Content-type": "application/json"}
+        });
+        if (response.ok) {
+            loadOrders();
+          }
+    }, [loadOrders]);
 
-    useEffect(() => {  // initial only
+    const onDeleteClick = useCallback(async (orderId) => {
+        const response = await fetch(`http://localhost:5000/orders/${orderId}`, {
+            method: "DELETE"
+        });
+        if (response.ok){
+            loadOrders();
+        }
+    }, [loadOrders])
+
+    useEffect(() => { 
         document.title = "Dashboard - 07-11";
         loadOrders();
-    }, [UserContex.user.userId, loadOrders])
+    }, [UserContex.user.userId, loadOrders, onBuyClick, onDeleteClick])
 
     return(
         <div className='row mt-4'>
@@ -46,7 +65,13 @@ function Dashboard() {
                 <div className='card p-4'>
                     <h3 className='border-bottom '>Попередні замовлення: {OrderServices.getPrevOrders(orders).length}</h3>
                     <div className='row mt-4'>
-                        {OrderServices.getPrevOrders(orders).length > 0 && renderOrder(OrderServices.getPrevOrders(orders))}
+                        {OrderServices.getPrevOrders(orders).length > 0 && 
+                        OrderServices.getPrevOrders(orders).map(ord => {
+                        return (<Order key={ord.id} name={ord.product.productName} price={ord.product.price} brandId={ord.product.brandId}
+                            categoryId={ord.product.categoryId} rating={ord.product.rating} quantity={ord.quantity} userId={ord.userId}
+                            productId={ord.productId} isPaymentCompleted={ord.isPaymentCompleted} onBuyClick={onBuyClick} id={ord.id}
+                            onDeleteClick={onDeleteClick}
+                        />)})}
                     </div>
                 </div>
             </div>
@@ -54,7 +79,13 @@ function Dashboard() {
                 <div className='card p-4'>
                     <h3 className='border-bottom '>Корзина: {OrderServices.getCartOrders(orders).length}</h3>
                     <div className='row mt-4'>
-                        {OrderServices.getCartOrders(orders).length > 0 && renderOrder(OrderServices.getCartOrders(orders))}
+                        {OrderServices.getCartOrders(orders).length > 0 && 
+                        OrderServices.getCartOrders(orders).map(ord => {
+                        return (<Order key={ord.id} name={ord.product.productName} price={ord.product.price} brandId={ord.product.brandId}
+                            categoryId={ord.product.categoryId} rating={ord.product.rating} quantity={ord.quantity} userId={ord.userId}
+                            productId={ord.productId} isPaymentCompleted={ord.isPaymentCompleted} onBuyClick={onBuyClick} id={ord.id}
+                            onDeleteClick={onDeleteClick}
+                        />)})}
                     </div>
                 </div>
             </div>
