@@ -87,6 +87,7 @@ function Store() {
             <div className="col-9">
                 {JSON.stringify(brands)}
                 {JSON.stringify(products)}
+                {JSON.stringify(categories)}
             </div>
         </div>
 };
