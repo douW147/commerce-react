@@ -3,6 +3,7 @@ import Login from './login/login.jsx';
 import Register from './register/Register.jsx';
 import Dashboard from './dashboard/Dashboard.jsx';
 import Page404 from './page404/Page404.jsx';
+import Store from "./store/Store.jsx";
 import {HashRouter, Route, Switch} from "react-router-dom";
 import Navbar from './navbar/Navbar.jsx';
 import { userContext } from './userContext.js';
@@ -23,6 +24,8 @@ function App() {
                     <Switch>
                         <Route path="/" exact component={Login}/>
                         {user.isLoggedIn ? <Route path="/dashboard" exact component={Dashboard} /> : 
+                        window.location.hash="/"}
+                        {user.isLoggedIn ? <Route path="/store" exact component={Store} /> : 
                         window.location.hash="/"}
                         <Route path="/register" exact component={Register} />
                         <Route path="*" component={Page404}/>

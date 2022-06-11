@@ -49,6 +49,11 @@ function Navbar() {
                             <NavLink to="/dashboard" className="nav-link" activeClassName="active">Dashboard</NavLink>
                         </li>
                         }
+                        {currentUser.user.isLoggedIn &&
+                        <li className="nav-item">
+                            <NavLink to="/store" className="nav-link" activeClassName="active">Store</NavLink>
+                        </li>
+                        }
                         {!currentUser.user.isLoggedIn &&
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/" exact activeClassName="active">Login</NavLink>
@@ -67,8 +72,8 @@ function Navbar() {
                                 {currentUser.user.userName}
                             </button>
                             <div style={renderExpand()} className="dropdown-menu --width1000" aria-labelledby="dropdownMenuButton">
-                                <a className="dropdown-item">{currentUser.user.userName}</a>
-                                <a className="dropdown-item" onClick={(event) => {onLogout(event)}}>Logout</a>
+                                <a href="#" className="dropdown-item">{currentUser.user.userName}</a>
+                                <a href="#" className="dropdown-item" onClick={(event) => {onLogout(event)}}>Logout</a>
                             </div>
                         </div>
                     </div>

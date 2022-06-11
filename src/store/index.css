@@ -1,0 +1,29 @@
+.categories{
+    border-bottom: 2px solid #000 !important;
+}
+
+.b-3{
+    border-bottom: 3px solid #000 !important;
+}
+
+.checkbox:checked {
+    background-color: #000;
+    border-color: #000;
+}
+
+.checkbox{
+    border-radius: 0 !important;
+    border: 2px solid #000 !important;
+    margin-right: 5px;
+}
+
+.form-check-input:focus {
+    border-color: #000;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(0 0 0 / 25%);
+}
+
+.form-check-label{
+    font-size: 16px;
+    font-weight: 600;
+}
