@@ -13,6 +13,11 @@ a{
     flex-direction: row;
 }
 
+.items{
+    display: flex;
+    flex-direction: row;
+}
+
 .space-between{
     width: 100%;
     display: flex;
@@ -40,8 +45,26 @@ a{
 
 .dropdown-menu{
     width: 200px;
+    position: absolute;
 }
 
 .--width100{
     width: 100%
+}
+
+.--widthAuto{
+    width: auto
+}
+
+.flex{
+    display: flex;
+}
+
+.nav-item{
+    margin-right: 10px;
+    font-size: 20px !important;
+}
+
+.navbar-brand{
+    margin-top: 4px;
 }

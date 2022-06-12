@@ -25,7 +25,8 @@ function Order(props) {
             {props.isPaymentCompleted === true &&
             <h6 className="width-auto">Кількість: {quantity}</h6>
             }
-            <h5 className="width-auto">{Array(props.rating).fill(0).map((elem,ind) => {return <i key={ind} className="fa fa-solid fa-star"></i>})}</h5>
+            <h5 className="width-auto">{Array(props.rating).fill(0).map((elem,ind) => {return <i key={ind} className="fa fa-solid fa-star"></i>})}
+            {Array(5 - props.rating).fill(0).map((elem,ind) => {return <i key={ind} className="fa fa-solid fa-star-o"></i>})}</h5>
         </div>
         {props.isPaymentCompleted === false &&
         <div className="row">

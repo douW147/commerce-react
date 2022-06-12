@@ -36,14 +36,11 @@ function Navbar() {
     }
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-edited">
-            <NavLink className="navbar-brand" to="/dashboard" exact>07-11</NavLink>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <nav className="navbar navbar-edited justify-content-start">
+            <div className="--width100 flex">
+                <NavLink className="navbar-brand" to="/dashboard" exact>07-11</NavLink>
                 <div className="navbar-nav mr-auto space-between">
-                    <div className="logout">
+                    <div className="items">
                         {currentUser.user.isLoggedIn &&
                         <li className="nav-item">
                             <NavLink to="/dashboard" className="nav-link" activeClassName="active">Dashboard</NavLink>
