@@ -126,7 +126,8 @@ function Register(props) {
                     dateOfBirth: state.date,
                     gender: state.gender,
                     country: state.country,
-                    receiveNewsLetters: false
+                    receiveNewsLetters: false,
+                    role: "user"
                 }),
                 headers: {
                     "Content-type": "application/json"
@@ -137,7 +138,8 @@ function Register(props) {
                         ...currentUser.user,
                         isLoggedIn: true,
                         userName: responseBody.fullName,
-                        userId: responseBody.id
+                        userId: responseBody.id,
+                        userRole: responseBody.role
                     });
                     props.history.replace("/dashboard");
                     setMessage(<span className="text-success">Успішно зареєстровано</span>);

@@ -95,8 +95,9 @@ function Login(props) {
                         ...currentUser.user,
                         isLoggedIn: true,
                         userName: responseBody[0].fullName,
-                        userId: responseBody[0].id
-                    })
+                        userId: responseBody[0].id,
+                        userRole: responseBody[0].role
+                    });
                     props.history.replace("/dashboard");
                 }
             } else {

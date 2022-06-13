@@ -6,6 +6,7 @@ import Page404 from './page404/Page404.jsx';
 import Store from "./store/Store.jsx";
 import {HashRouter, Route, Switch} from "react-router-dom";
 import Navbar from './navbar/Navbar.jsx';
+import Products from "./Products/Products.jsx";
 import { userContext } from './userContext.js';
 
 function App() {
@@ -13,8 +14,11 @@ function App() {
     const [user, setUser] = useState({
         isLoggedIn: false,
         userId: null,
-        userName: null
+        userName: null,
+        userRole: null
     });
+
+    console.log(user);
 
     return (
         <userContext.Provider value={{user, setUser}}>
@@ -27,6 +31,7 @@ function App() {
                         window.location.hash="/"}
                         {user.isLoggedIn ? <Route path="/store" exact component={Store} /> : 
                         window.location.hash="/"}
+                        {(user.isLoggedIn && user.userRole === "admin") && <Route path="/products" exact component={Products} /> }
                         <Route path="/register" exact component={Register} />
                         <Route path="*" component={Page404}/>
                     </Switch>

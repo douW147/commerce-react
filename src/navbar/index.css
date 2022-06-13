@@ -36,16 +36,31 @@ a{
 .dropdown-toggle{
     color: rgba(26, 26, 37, 1);
     background-color: #fff;
+    border-radius: 0;
+    font-weight: 600 !important;
+    font-size: 18px !important;
 }
 
 .dropdown-item{
     color:rgba(26, 26, 37, 1)!important;  
+    font-weight: 600 !important;
+    font-size: 18px !important;
+}
+
+.dropdown-item:active {
+    color: #fff !important;
+    text-decoration: none;
+    background-color: #000;
 }
 
 
-.dropdown-menu{
+.dropdown-menu-own{
     width: 200px;
-    position: absolute;
+    position: absolute !important;
+    border: 2px solid #000;
+    font-weight: 600 !important;
+    font-size: 20px !important;
+    background-color: #fff;
 }
 
 .--width100{
@@ -67,4 +82,18 @@ a{
 
 .navbar-brand{
     margin-top: 4px;
+}
+
+.btn-secondary:hover {
+    color: #fff;
+    background-color: rgba(26, 26, 37, 1)!important;
+    border-color: rgba(26, 26, 37, 1)!important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.9) !important;
+}
+
+.btn-secondary:focus {
+    color: #fff;
+    background-color: rgba(26, 26, 37, 1)!important;
+    border-color: rgba(26, 26, 37, 1)!important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.9) !important;
 }

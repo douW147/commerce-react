@@ -110,7 +110,8 @@
       "dateOfBirth": "2000-12-15",
       "gender": "male",
       "country": "UK",
-      "receiveNewsLetters": true
+      "receiveNewsLetters": true,
+      "role": "user"
     },
     {
       "email": "sashok1111122222@gmail.com",
@@ -120,7 +121,8 @@
       "gender": "male",
       "country": "Uk",
       "receiveNewsLetters": false,
-      "id": 1
+      "id": 1,
+      "role": "user"
     },
     {
       "email": "1@gmail.com",
@@ -130,7 +132,19 @@
       "gender": "female",
       "country": "Uk",
       "receiveNewsLetters": false,
-      "id": 3
+      "id": 3,
+      "role": "user"
+    },
+    {
+      "email": "Admin@gmail.com",
+      "password": "Admin123",
+      "fullName": "Lox",
+      "dateOfBirth": "2022-05-06",
+      "gender": "female",
+      "country": "Uk",
+      "receiveNewsLetters": false,
+      "id": 4,
+      "role": "admin"
     }
   ],
   "orders": [

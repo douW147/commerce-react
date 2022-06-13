@@ -51,6 +51,11 @@ function Navbar() {
                             <NavLink to="/store" className="nav-link" activeClassName="active">Store</NavLink>
                         </li>
                         }
+                        {(currentUser.user.isLoggedIn && currentUser.user.userRole === "admin") &&
+                        <li className="nav-item">
+                            <NavLink to="/products" className="nav-link" activeClassName="active">Products</NavLink>
+                        </li>
+                        }
                         {!currentUser.user.isLoggedIn &&
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/" exact activeClassName="active">Login</NavLink>
@@ -68,8 +73,8 @@ function Navbar() {
                             <button className="btn btn-secondary dropdown-toggle --width100" onClick={onDropdownClick} type="button" id="dropdownMenuButton">
                                 {currentUser.user.userName}
                             </button>
-                            <div style={renderExpand()} className="dropdown-menu --width1000" aria-labelledby="dropdownMenuButton">
-                                <a href="#" className="dropdown-item">{currentUser.user.userName}</a>
+                            <div style={renderExpand()} className="dropdown-menu-own --width1000" >
+                                <a className="dropdown-item">{currentUser.user.userName}</a>
                                 <a href="#" className="dropdown-item" onClick={(event) => {onLogout(event)}}>Logout</a>
                             </div>
                         </div>
