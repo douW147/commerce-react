@@ -40,3 +40,19 @@ export const productsService = {
     }
 }
 
+export const sortService = {
+    sortProducts: (prods, sortBy, sortOrder) => {
+        if (prods){
+            prods.sort((a, b) => {
+                if(a[sortBy] && b[sortBy]) {
+                    return a[sortBy].toString().toLowerCace() - b[sortBy].toString().toLowerCase()
+                } else {return 0}
+            })
+            if (sortOrder ==="DESC"){
+                prods.reverse()
+            }
+            return prods;
+        }
+        else {return prods}
+    }
+}

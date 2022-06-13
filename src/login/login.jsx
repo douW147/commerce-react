@@ -5,8 +5,8 @@ import { userContext } from "../userContext.js";
 
 function Login(props) {
 
-    const [email, setEmail] = useState("sashok1111122222@gmail.com");
-    const [password, setpassword] = useState("Cupofcoffe1");
+    const [email, setEmail] = useState("Admin@gmail.com");  //        sashok1111122222@gmail.com
+    const [password, setpassword] = useState("Admin123"); //        Cupofcoffe1
     const [dirty, setDirty] = useState({
         email: false,
         password: false

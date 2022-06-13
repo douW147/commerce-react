@@ -111,7 +111,7 @@ function Store() {
             );
     }
 
-    return <div className="row mt-3">
+    return <div className="row mt-3 align-items-start">
             <div className="col-3">
                 <h3 className="border-bottom b-3">Фільтри</h3>
                 <div className="categories border-bottom mt-3 pb-3">
@@ -119,7 +119,7 @@ function Store() {
                     <div className="category-items ml-4">
                         {categories.map((categ) => {
                             return(
-                                <div key={categ.id} >
+                                <div key={categ.id} className="filter-row mb-1">
                                     <input value={categ.isChecked} className="checkbox form-check-input" checked={categ.isChecked} onChange={() => {onCategoryChange(categ.id)}} type="checkbox" id={`categ${categ.id}`}></input>
                                     <label className="form-check-label" htmlFor={`categ${categ.id}`}>{categ.categoryName}</label>
                                 </div>
@@ -132,7 +132,7 @@ function Store() {
                     <div className="brand-items">
                         {brands.map((brand) => {
                             return(
-                                <div key={brand.id} >
+                                <div key={brand.id} className="filter-row mb-1" >
                                     <input className="checkbox form-check-input" value={brand.isChecked} checked={brand.isChecked} onChange={() => {onBrandChange(brand.id)}} type="checkbox" id={`brand${brand.id}`}></input>
                                     <label className="form-check-label" htmlFor={`brand${brand.id}`}>{brand.brandName}</label>
                                 </div>

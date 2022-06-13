@@ -15,6 +15,7 @@
     border-radius: 0 !important;
     border: 2px solid #000 !important;
     margin-right: 5px;
+    cursor: pointer;
 }
 
 .form-check-input:focus {
@@ -24,8 +25,9 @@
 }
 
 .form-check-label{
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    cursor: pointer;
 }
 
 .category-items{
@@ -53,3 +55,4 @@
     color: #000 !important;
     font-size: bold;
 }
+
