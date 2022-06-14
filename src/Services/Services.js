@@ -41,18 +41,17 @@ export const productsService = {
 }
 
 export const sortService = {
-    sortProducts: (prods, sortBy, sortOrder) => {
-        if (prods){
-            prods.sort((a, b) => {
-                if(a[sortBy] && b[sortBy]) {
-                    return a[sortBy].toString().toLowerCace() - b[sortBy].toString().toLowerCase()
-                } else {return 0}
-            })
-            if (sortOrder ==="DESC"){
-                prods.reverse()
-            }
-            return prods;
+    sortProducts: (prods, sortBy) => {
+        const newProds = [...prods]
+        if (sortBy === "cheaper") {
+            newProds.sort((a, b) => {
+                return a.price - b.price
+            }) 
+        } else if(sortBy === "expensive"){
+            newProds.sort((a, b) => {
+                return b.price - a.price
+            }) 
         }
-        else {return prods}
+        return newProds
     }
 }

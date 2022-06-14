@@ -6,7 +6,7 @@ import { userContext } from "../userContext.js";
 function Login(props) {
 
     const [email, setEmail] = useState("Admin@gmail.com");  //        sashok1111122222@gmail.com
-    const [password, setpassword] = useState("Admin123"); //        Cupofcoffe1
+    const [password, setpassword] = useState("Admin123"); //        Test12345
     const [dirty, setDirty] = useState({
         email: false,
         password: false
@@ -17,9 +17,8 @@ function Login(props) {
     });
 
     const [message, setMessage] = useState("");
-
     const currentUser = useContext(userContext);
-    
+    const myEmailRef = useRef();
 
     useEffect(() => {  // initial only
         document.title = "Login - 07-11"
@@ -34,6 +33,10 @@ function Login(props) {
             validateFields();
         }
     }, [email, password]);
+
+    useEffect(() => {
+        myEmailRef.current.focus();
+    },[])
 
     const validateFields = () => {
         let errorsData = {};
@@ -91,12 +94,12 @@ function Login(props) {
             if (response.ok){
                 let responseBody = await response.json();
                 if (responseBody.length > 0) {
-                    currentUser.setUser({
-                        ...currentUser.user,
-                        isLoggedIn: true,
-                        userName: responseBody[0].fullName,
-                        userId: responseBody[0].id,
-                        userRole: responseBody[0].role
+                    currentUser.dispatch({
+                        type: "login", payload: {
+                            userName: responseBody[0].fullName,
+                            userId: responseBody[0].id,
+                            userRole: responseBody[0].role
+                        }
                     });
                     props.history.replace("/dashboard");
                 }
@@ -132,6 +135,7 @@ function Login(props) {
                                             setDirty({email: true, password: false});
                                             validateFields();
                                         }}
+                                    ref={myEmailRef}
                                     >
                                     </input>
                                 </div>

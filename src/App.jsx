@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useReducer} from "react";
 import Login from './login/login.jsx';
 import Register from './register/Register.jsx';
 import Dashboard from './dashboard/Dashboard.jsx';
@@ -11,17 +11,38 @@ import { userContext } from './userContext.js';
 
 function App() {
 
-    const [user, setUser] = useState({
+    const initialUser = {
         isLoggedIn: false,
         userId: null,
         userName: null,
         userRole: null
-    });
+    };
 
-    console.log(user);
+    const reducer = (state, action) => {
+        switch (action.type) {
+            case "logout":
+                return {
+                    isLoggedIn: false,
+                    userId: null,
+                    userName: null,
+                    userRole: null 
+                };
+            case "login":
+                return {
+                    isLoggedIn: true,
+                    userId: action.payload.userId,
+                    userName: action.payload.userName,
+                    userRole: action.payload.userRole
+                }
+            default:
+                break;
+        }
+    }
+
+    const [user, dispatch] = useReducer(reducer, initialUser);
 
     return (
-        <userContext.Provider value={{user, setUser}}>
+        <userContext.Provider value={{user, dispatch}}>
             <HashRouter>
                 <Navbar/>
                 <div className='container-fluid'>

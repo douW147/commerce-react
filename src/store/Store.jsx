@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import { userContext } from "../userContext.js";
-import {brandsService, categoriesService, productsService} from "../Services/Services.js";
+import {brandsService, categoriesService, productsService, sortService} from "../Services/Services.js";
 import Product from "../Product/Product.jsx";
 import "./index.css"
 
@@ -12,6 +12,7 @@ function Store() {
     const [products, setProducts] = useState([]);
     const [productsToShow, setProductsToShow] = useState([]);
     const [search, setSearch] = useState("");
+    const [sortBy, setSortBy] = useState("cheaper");
 
     useEffect(() => {
         document.title = "07-11 Store";
@@ -37,14 +38,14 @@ function Store() {
                     prod.brand = brandsService.getBrandById(brands, prod.brandId);
                 });
                 setProducts(products);
-                setProductsToShow(products);
+                setProductsToShow(sortService.sortProducts(products, sortBy));
             }
         })();
     }, []);
 
     useEffect(() => {
         updateProductsToShow();
-    }, [search, categories, brands])
+    }, [search, categories, brands, sortBy])
 
     const onCategoryChange = (id) => {
         const newCat = categories.map(cat => {
@@ -90,16 +91,15 @@ function Store() {
     }
 
     const updateProductsToShow = () => {
-        setProductsToShow(products
-            .filter((prod) => {
+        const newProds = [...products];
+        newProds.filter((prod) => {
               return (
                 categories.filter(
                   (category) =>
                     category.id === prod.categoryId && category.isChecked
                 ).length > 0
               );
-            })
-            .filter((prod) => {
+            }).filter((prod) => {
               return (
                 brands.filter(
                   (brand) => brand.id === prod.brandId && brand.isChecked
@@ -107,8 +107,8 @@ function Store() {
               );
             }).filter((prod) => {
                 return (prod.productName.toLowerCase().includes(search.toLowerCase()));
-            })
-            );
+            });
+        setProductsToShow(sortService.sortProducts(newProds, sortBy));
     }
 
     return <div className="row mt-3 align-items-start">
@@ -145,6 +145,15 @@ function Store() {
                 <div className="row">
                     <div className="col-12 p1rem">
                         <input className="width100 p-2 search" value={search} onChange={(event) => {setSearch(event.target.value)}} placeholder="Пошук"></input>
+                            <select
+                                className="form-select mt-2 p-2"
+                                name="country"
+                                id="country"
+                                value = {sortBy}
+                                onChange={(event) => {setSortBy(event.target.value)}}>
+                                <option className="opt" value="cheaper">Спочатку дешевші</option>
+                                <option className="opt" value="expensive">Спочатку дорожчі</option>
+                            </select>
                     </div>
                 </div>
                 <div className="row">

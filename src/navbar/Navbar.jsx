@@ -25,12 +25,8 @@ function Navbar() {
     };
 
     const onLogout = (event) => {
-        event.preventDefault()
-        currentUser.setUser({
-            isLoggedIn: false,
-            userName: null,
-            userId: null
-        });
+        event.preventDefault();
+        currentUser.dispatch({ type: "logout", payload:{}});
         setIsExpand("false");
         window.location.hash="/";
     }
@@ -38,7 +34,10 @@ function Navbar() {
     return (
         <nav className="navbar navbar-edited justify-content-start">
             <div className="--width100 flex">
-                <NavLink className="navbar-brand" to="/dashboard" exact>07-11</NavLink>
+                {currentUser.user.isLoggedIn ? <NavLink className="navbar-brand" to="/dashboard" exact>07-11</NavLink> 
+                :
+                <NavLink className="navbar-brand" to="/" exact>07-11</NavLink> 
+                }
                 <div className="navbar-nav mr-auto space-between">
                     <div className="items">
                         {currentUser.user.isLoggedIn &&

@@ -32,15 +32,21 @@ function Register(props) {
         country: false
     });
 
+    const isInitialMount = useRef(true);
+
     const [message, setMessage] = useState("")
 
     const currentUser = useContext(userContext);
+
+    const myEmailRef = useRef();
 
     useEffect(() => {  // initial only
         document.title = "Register - 07-11"
     }, []);
 
-    const isInitialMount = useRef(true);
+    useEffect(() => {
+        myEmailRef.current.focus();
+    },[])
 
     useEffect(() => {
     if (isInitialMount.current) {
@@ -101,7 +107,6 @@ function Register(props) {
     const isValid = () => {
         for(let error in errors){
             if (errors[error].length > 0){
-                console.log("error");
                 return false
             };
         }
@@ -116,8 +121,8 @@ function Register(props) {
             }
         })
         setDirty(dirtyData);
-        validateFields("", async() => {
-            if (isValid()){
+        validateFields("",  ( async () => {
+            if (isValid() === true){
                 let response = await fetch("http://localhost:5000/users", {method: "POST",
                 body: JSON.stringify({
                     email: state.email,
@@ -134,12 +139,12 @@ function Register(props) {
                 }});
                 if (response.ok){
                     const responseBody = await response.json();
-                    currentUser.setUser({
-                        ...currentUser.user,
+                    currentUser.dispatch({type: "login", payload: {
                         isLoggedIn: true,
                         userName: responseBody.fullName,
                         userId: responseBody.id,
                         userRole: responseBody.role
+                    }
                     });
                     props.history.replace("/dashboard");
                     setMessage(<span className="text-success">Успішно зареєстровано</span>);
@@ -149,7 +154,7 @@ function Register(props) {
             } else {
                 setMessage(<span className="text-danger">Заповніть всі поля правильно</span>)
             };
-        });
+        })());
     }
 
     const renderErrorStyle = (value) => {
@@ -177,6 +182,7 @@ function Register(props) {
                                 <div className="col-lg-8">
                                     {dirty.email && errors.email && <span className="text-danger">{errors.email}</span>}
                                     <input
+                                    ref={myEmailRef}
                                     style={renderErrorStyle("email")}
                                     className="form-control"
                                     id="email"
@@ -294,7 +300,7 @@ function Register(props) {
                                         {dirty.country && errors.country && <span className="text-danger">{errors.country}</span>}
                                         <select
                                         style={renderErrorStyle("country")}
-                                        className="form-control"
+                                        className="form-select"
                                         name="country"
                                         id="country"
                                         value = {state.country}

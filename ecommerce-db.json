@@ -145,6 +145,17 @@
       "receiveNewsLetters": false,
       "id": 4,
       "role": "admin"
+    },
+    {
+      "email": "test@gmail.com",
+      "password": "Test12345",
+      "fullName": "Test",
+      "dateOfBirth": "2022-06-01",
+      "gender": "male",
+      "country": "USA",
+      "receiveNewsLetters": false,
+      "role": "user",
+      "id": 5
     }
   ],
   "orders": [
