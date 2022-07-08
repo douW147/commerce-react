@@ -1,48 +1,20 @@
 import React, {useState, useReducer} from "react";
-import Login from './login/login.jsx';
-import Register from './register/Register.jsx';
-import Dashboard from './dashboard/Dashboard.jsx';
-import Page404 from './page404/Page404.jsx';
-import Store from "./store/Store.jsx";
+import Login from './components/login/login.jsx';
+import Register from './components/register/Register.jsx';
+import Dashboard from './components/dashboard/Dashboard.jsx';
+import Page404 from './components/page404/Page404.jsx';
+import Store from "./components/store/Store.jsx";
 import {HashRouter, Route, Switch} from "react-router-dom";
-import Navbar from './navbar/Navbar.jsx';
-import Products from "./Products/Products.jsx";
-import { userContext } from './userContext.js';
+import Navbar from './components/navbar/Navbar.jsx';
+import Products from "./components/Products/Products.jsx";
+import {useSelector} from "react-redux"
 
 function App() {
 
-    const initialUser = {
-        isLoggedIn: false,
-        userId: null,
-        userName: null,
-        userRole: null
-    };
-
-    const reducer = (state, action) => {
-        switch (action.type) {
-            case "logout":
-                return {
-                    isLoggedIn: false,
-                    userId: null,
-                    userName: null,
-                    userRole: null 
-                };
-            case "login":
-                return {
-                    isLoggedIn: true,
-                    userId: action.payload.userId,
-                    userName: action.payload.userName,
-                    userRole: action.payload.userRole
-                }
-            default:
-                break;
-        }
-    }
-
-    const [user, dispatch] = useReducer(reducer, initialUser);
+    const user = useSelector(state => state.user.data);
+    console.log(user)
 
     return (
-        <userContext.Provider value={{user, dispatch}}>
             <HashRouter>
                 <Navbar/>
                 <div className='container-fluid'>
@@ -58,7 +30,6 @@ function App() {
                     </Switch>
                 </div>
             </HashRouter>
-        </userContext.Provider>
     );
 };
 

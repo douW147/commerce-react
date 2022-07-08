@@ -1,16 +1,17 @@
 import React, {useEffect, useContext, useState, useCallback} from 'react';
-import {userContext} from '../userContext.js';
+import {userContext} from '../../userContext.js';
 import "./index.css"
 import Order from '../Order/Order.jsx';
-import {OrderServices, fetchService} from '../Services/Services.js';
+import {OrderServices, fetchService} from '../../Services/Services.js';
+import {useSelector} from 'react-redux';
 
 function Dashboard() {
 
     const [orders, setOrders] = useState([]);
-    const UserContex = useContext(userContext);
+    const currentUser = useSelector(state => state.user.data);
 
     const loadOrders = useCallback(async() => {
-        const response = await fetchService.getUser(UserContex.user.userId);
+        const response = await fetchService.getUser(currentUser.userId);
         if (response.ok){
             const ordersData = await response.json();
             const productsResp = await fetchService.getProducts();
@@ -24,7 +25,7 @@ function Dashboard() {
             }
             setOrders(ordersData);
         }     
-    }, [UserContex.user.userId] )
+    }, [currentUser.userId] )
 
     const onBuyClick = useCallback(async(isPaymentCompleted, quantity, id, userId, productId) => {
         const newOrderData = {
@@ -56,7 +57,7 @@ function Dashboard() {
     useEffect(() => { 
         document.title = "Dashboard - 07-11";
         loadOrders();
-    }, [UserContex.user.userId, loadOrders, onBuyClick, onDeleteClick])
+    }, [currentUser.userId, loadOrders, onBuyClick, onDeleteClick])
 
     return(
         <div className='row mt-4'>

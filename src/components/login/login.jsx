@@ -1,7 +1,9 @@
-import React, {useEffect, useState, useRef, useContext} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import { Link } from "react-router-dom";
 import "./index.css"
-import { userContext } from "../userContext.js";
+import {useDispatch, useSelector } from 'react-redux';
+import userSlice from "../../slices/userSlice";
+
 
 function Login(props) {
 
@@ -17,8 +19,10 @@ function Login(props) {
     });
 
     const [message, setMessage] = useState("");
-    const currentUser = useContext(userContext);
+    const currentUser = useSelector(state => state.user.data);
     const myEmailRef = useRef();
+
+    const dispatch = useDispatch()
 
     useEffect(() => {  // initial only
         document.title = "Login - 07-11"
@@ -94,13 +98,12 @@ function Login(props) {
             if (response.ok){
                 let responseBody = await response.json();
                 if (responseBody.length > 0) {
-                    currentUser.dispatch({
-                        type: "login", payload: {
-                            userName: responseBody[0].fullName,
-                            userId: responseBody[0].id,
-                            userRole: responseBody[0].role
-                        }
-                    });
+                    const user = {
+                        userName: responseBody[0].fullName,
+                        userId: responseBody[0].id,
+                        userRole: responseBody[0].role
+                    }
+                    dispatch(userSlice.actions.login(user));
                     props.history.replace("/dashboard");
                 }
             } else {

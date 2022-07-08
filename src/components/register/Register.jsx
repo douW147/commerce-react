@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef, useContext} from "react";
-import { userContext } from "../userContext.js";
 import "./index.css";
+import { useDispatch } from 'react-redux';
+import userSlice from "../../slices/userSlice.js";
 
 function Register(props) {
 
@@ -36,9 +37,9 @@ function Register(props) {
 
     const [message, setMessage] = useState("")
 
-    const currentUser = useContext(userContext);
-
     const myEmailRef = useRef();
+
+    const dispatch = useDispatch();
 
     useEffect(() => {  // initial only
         document.title = "Register - 07-11"
@@ -139,13 +140,12 @@ function Register(props) {
                 }});
                 if (response.ok){
                     const responseBody = await response.json();
-                    currentUser.dispatch({type: "login", payload: {
-                        isLoggedIn: true,
+                    const user = {
                         userName: responseBody.fullName,
                         userId: responseBody.id,
                         userRole: responseBody.role
                     }
-                    });
+                    dispatch(userSlice.actions.login(user));
                     props.history.replace("/dashboard");
                     setMessage(<span className="text-success">Успішно зареєстровано</span>);
                 } else {

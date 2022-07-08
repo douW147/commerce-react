@@ -156,6 +156,17 @@
       "receiveNewsLetters": false,
       "role": "user",
       "id": 5
+    },
+    {
+      "email": "lox@gng.com",
+      "password": "Lox123456789",
+      "fullName": "Loshara",
+      "dateOfBirth": "2022-07-08",
+      "gender": "male",
+      "country": "Uk",
+      "receiveNewsLetters": false,
+      "role": "user",
+      "id": 6
     }
   ],
   "orders": [

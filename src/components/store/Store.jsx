@@ -1,12 +1,12 @@
 import React, {useContext, useState, useEffect} from "react";
-import { userContext } from "../userContext.js";
-import {brandsService, categoriesService, productsService, sortService} from "../Services/Services.js";
+import {brandsService, categoriesService, productsService, sortService} from "../../Services/Services.js";
 import Product from "../Product/Product.jsx";
-import "./index.css"
+import "./index.css";
+import { useSelector } from 'react-redux'; 
 
 function Store() {
 
-    const user = useContext(userContext);
+    const user = useSelector(state => state.data);
     const [brands, setBrands] = useState([]);
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);

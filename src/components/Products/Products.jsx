@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {productsService, categoriesService, brandsService, sortService} from "../Services/Services.js"
+import {productsService, categoriesService, brandsService, sortService} from "../../Services/Services.js"
 import "./index.css"
 
 function Products() {
