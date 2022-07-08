@@ -47,10 +47,17 @@ a{
     font-size: 18px !important;
 }
 
+.dropdown-item.active, .dropdown-item:active {
+    border: none;
+    color: #fff !important;
+    text-decoration: none;
+    background-color: #000 !important;
+}
+
 .dropdown-item:active {
     color: #fff !important;
     text-decoration: none;
-    background-color: #000;
+    background-color: #000 !important;
 }
 
 

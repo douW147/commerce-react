@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./index.css"
 import {useDispatch, useSelector } from 'react-redux';
 import userSlice from "../../slices/userSlice";
+import { loginUserThunk } from "../../thunks/userthunk";
 
 
 function Login(props) {
@@ -19,7 +20,7 @@ function Login(props) {
     });
 
     const [message, setMessage] = useState("");
-    const currentUser = useSelector(state => state.user.data);
+    const user = useSelector(state => state.user);
     const myEmailRef = useRef();
 
     const dispatch = useDispatch()
@@ -41,6 +42,14 @@ function Login(props) {
     useEffect(() => {
         myEmailRef.current.focus();
     },[])
+
+    useEffect(() => {
+        if (user.redirect !== "") {
+            props.history.replace(user.redirect);
+        }
+        setMessage(<span className="text-danger">{user.error}</span>);
+    },[user])
+
 
     const validateFields = () => {
         let errorsData = {};
@@ -94,21 +103,7 @@ function Login(props) {
         })
         setDirty(dirtyData)
         if (isValid()){
-            let response = await fetch(`http://localhost:5000/users?email=${email}&password=${password}`, {method: "GET",});
-            if (response.ok){
-                let responseBody = await response.json();
-                if (responseBody.length > 0) {
-                    const user = {
-                        userName: responseBody[0].fullName,
-                        userId: responseBody[0].id,
-                        userRole: responseBody[0].role
-                    }
-                    dispatch(userSlice.actions.login(user));
-                    props.history.replace("/dashboard");
-                }
-            } else {
-                setMessage(<span className="text-danger">Помилка при реєструванні</span>);
-            }
+            dispatch(loginUserThunk({email: email, password: password, history: props.history}))
         } else {
             setMessage(<span className="text-danger">Заповніть всі поля правильно</span>)
         };
@@ -166,6 +161,7 @@ function Login(props) {
                             </div>
                             <div className="card-footer mb-4">
                                 <Link to="/register" className="btn btn-dark">Зарегестрироваться</Link>
+                                {user.status === "pending" && <div id="loading"></div>}
                                 <button onClick={(event) => {onLogin(); event.preventDefault();}} type="submit" className="btn btn-dark">Войти</button>
                             </div>
                         </form>

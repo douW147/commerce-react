@@ -4,7 +4,7 @@ import "./index.css";
 function Product(props){
 
     const [prod] = useState(props.prod)
-    console.log(props.prod.isOrdered);
+    
     return <div className="col-lg-4 col-md-6 col-sm-12">
     <div className="p-5 m-1 shadow-lg border-radius mb-4 --300px">
         <div className="top">

@@ -7,23 +7,11 @@ const api = axios.create({
 
 export const loginUserThunk = createAsyncThunk(
     "user/login",
-    async(user) => {
-
+    async(data) => {
+        const response = await api.get(`http://localhost:5000/users?email=${data.email}&password=${data.password}`);
+        return response.data
     }
 );
-
-
-// currentUser.dispatch({
-//     type: "login", payload: {
-//         userName: responseBody[0].fullName,
-//         userId: responseBody[0].id,
-//         userRole: responseBody[0].role
-//     }
-// });
-// props.history.replace("/dashboard");
-// }
-// }
-
 
 export const logoutUserThunk = createAsyncThunk(
     "user/logout",

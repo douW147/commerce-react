@@ -6,13 +6,14 @@ import { useSelector } from 'react-redux';
 
 function Store() {
 
-    const user = useSelector(state => state.data);
+    const user = useSelector(state => state.user.data);
     const [brands, setBrands] = useState([]);
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [productsToShow, setProductsToShow] = useState([]);
     const [search, setSearch] = useState("");
     const [sortBy, setSortBy] = useState("cheaper");
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         document.title = "07-11 Store";
@@ -68,26 +69,30 @@ function Store() {
     };
 
     const onBuyClick = (prod) => {
-        const newOrder = {
-            userId: user.user.userId,
-            productId: prod.id,
-            quantity: 1,
-            isPaymentCompleted: false
-        };
-        (async() => {
-            const response = await fetch(`http://localhost:5000/orders`, {
-                method: "POST",
-                body: JSON.stringify(newOrder),
-                headers: {"Content-Type": "application/json"}
-            });
-            if(response.ok){
-                const prods = products.map((p) => {
-                    if (p.id === prod.id) p.isOrdered = true;
-                    return p;
+        if (user.userRole === "guest") {
+            window.alert("login first")
+        } else {
+            const newOrder = {
+                userId: user.userId,
+                productId: prod.id,
+                quantity: 1,
+                isPaymentCompleted: false
+            };
+            (async() => {
+                const response = await fetch(`http://localhost:5000/orders`, {
+                    method: "POST",
+                    body: JSON.stringify(newOrder),
+                    headers: {"Content-Type": "application/json"}
                 });
-                setProducts(prods);
-            }
-        })();
+                if(response.ok){
+                    const prods = products.map((p) => {
+                        if (p.id === prod.id) p.isOrdered = true;
+                        return p;
+                    });
+                    setProducts(prods);
+                }
+            })();
+        }
     }
 
     const updateProductsToShow = () => {
