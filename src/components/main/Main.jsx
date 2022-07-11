@@ -27,11 +27,38 @@ function Main(){
                 <div className="col-12 --p0">
                     <div className="swiper-container">
                         <Swiper pagination={true} navigation={true} modules={[Pagination, Navigation]} className="mySwiper p-3">
-                            {banners.map((banner) => {
+                            {banners.map((banner, index) => {
                                 return <SwiperSlide key={banner.id}>
-                                            
-                                            <img src={banner.photo} className="swiper-img"></img>
-                                            {/* <h2 className="swiper-details">{banner.details}</h2> */}
+                                            <div className="swiper-slide-container row">
+                                                {index % 2 === 0 &&
+                                                    <div className="col-9">
+                                                        <img src={banner.photo} className="swiper-img shadow-lg"></img>
+                                                    </div>
+                                                }
+                                                <div className="col-3">
+                                                    <div className="row flex-column --height100">
+                                                        <div className="col-12 after-photo-container after-photo-container-top">
+                                                            <div className="padding-container-top">
+                                                                <div className="details p-5 shadow-lg">
+                                                                    <h2 className="swiper-details-big">{banner.details1}</h2>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-12 after-photo-container after-photo-container-bottom">
+                                                        <div className="padding-container-bottom">
+                                                                <div className="details details-bottom shadow-lg">
+                                                                    <img  className="details-image" src={banner.details2}></img>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {index % 2 !== 0 &&
+                                                    <div className="col-9">
+                                                        <img src={banner.photo} className="swiper-img shadow-lg"></img>
+                                                    </div>
+                                                }
+                                            </div>
                                         </SwiperSlide>
                             })}
                         </Swiper>

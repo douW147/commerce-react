@@ -266,17 +266,20 @@
     {
       "id": 1,
       "photo": "http://cdn.cnn.com/cnnnext/dam/assets/190517091026-07-unusual-landscapes-travel.jpg",
-      "details": "Нова партія костюмів!"
+      "details1": "Нова партія костюмів!",
+      "details2": "https://img.freepik.com/premium-vector/autumn-mountains-landscape-with-tree-silhouettes-and-river-at-sunset_148087-293.jpg?w=2000"
     },
     {
       "id": 2,
-      "photo": "https://images.unsplash.com/photo-1500964757637-c85e8a162699?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXRpZnVsJTIwbGFuZHNjYXBlc3xlbnwwfHwwfHw%3D&w=1000&q=80",
-      "details": "Жіноча колекція"
+      "photo": "https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8&w=1000&q=80",
+      "details1": "Жіноча колекція",
+      "details2": "https://i.pinimg.com/originals/74/25/86/7425868ac741fbba296bb12b8c119b2c.jpg"
     },
     {
       "id": 3,
       "photo": "https://images.unsplash.com/photo-1500964757637-c85e8a162699?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXRpZnVsJTIwbGFuZHNjYXBlc3xlbnwwfHwwfHw%3D&w=1000&q=80",
-      "details": "Всі кольори та розміри в наявності"
+      "details1": "Всі кольори та розміри в наявності",
+      "details2": "https://cdn.dribbble.com/users/1803663/screenshots/15517875/media/2af2d296ef9afd2ae52a349da1b75e9d.jpg?compress=1&resize=400x300"
     }
   ]
 }
