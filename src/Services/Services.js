@@ -1,3 +1,10 @@
+import axios from "axios";
+import { URL } from "../data/constants";
+
+const api = axios.create({
+    baseURL: URL 
+});
+
 export const OrderServices = {
     getPrevOrders: (orders) => {
         return orders.filter(order => order.isPaymentCompleted === true)
@@ -53,5 +60,14 @@ export const sortService = {
             }) 
         }
         return newProds
+    }
+}
+
+export const bannersServices = {
+    getBanners: () => {
+        return api({
+            url: `/banners`,
+            method: "GET"
+        });
     }
 }

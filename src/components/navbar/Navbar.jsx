@@ -59,7 +59,6 @@ function Navbar() {
                                 {currentUser.userName}
                             </button>
                             <div style={renderExpand()} className="dropdown-menu-own --width1000" >
-                                <a className="dropdown-item">{currentUser.userName}</a>
                                 {!currentUser.isLoggedIn &&
                                     <NavLink className="dropdown-item" to="/login" exact >Login</NavLink>
                                 }
