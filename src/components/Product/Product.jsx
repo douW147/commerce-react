@@ -54,25 +54,26 @@ function Product(props){
     
     
     return <div className="col-lg-4 col-md-6 col-sm-12 mb-4" id="prod-card">
-    <div className="m-1 shadow-lg border-radius mb-4" id="card-container">
-        <div className="card-content">
-                <h1>Hello</h1>
-                <p>My name is Seppe Dekeyser</p>
-                <p>I make fancy stuff</p>
-                <p>Sometimes.</p>
-        </div> 
-    </div>
-</div>
+                <div style={{backgroundImage: `url(${prod.photos[0]})`}} className="m-1 shadow-lg border-radius mb-4" id="card-container">
+                    <div className="card-content">
+                        <div className="card-details p-3">
+                            <div className="card-heading">
+                                <h2>{prod.productName}</h2>
+                                <h6 className="width-auto">{Array(prod.rating).fill(0).map((elem,ind) => {return <i key={ind} className="fa fa-solid fa-star"></i>})}
+                                {Array(5 - prod.rating).fill(0).map((elem,ind) => {return <i key={ind} className="fa fa-solid fa-star-o"></i>})}</h6>
+                            </div>
+                            <div className="card-buy">
+                                <h5>
+                                    {prod.price} UAH
+                                </h5>
+                                {props.prod.isOrdered === true ? (<h6>Ordered!</h6>) : 
+                                (<button className="btn btn-dark buy-button --mt0" onClick={() => {props.onBuyClick(prod)}}>Купити</button>)
+                                }
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
 }
 
-{/* <div className="rating-buy">
-                    <div>
-                        <h5 className="width-auto">{Array(prod.rating).fill(0).map((elem,ind) => {return <i key={ind} className="fa fa-solid fa-star"></i>})}
-                        {Array(5 - prod.rating).fill(0).map((elem,ind) => {return <i key={ind} className="fa fa-solid fa-star-o"></i>})}</h5>
-                    </div>
-                    {props.prod.isOrdered === true ? (<h6>Ordered!</h6>) : 
-                    (<button className="btn btn-dark buy-button" onClick={() => {props.onBuyClick(prod)}}>Buy now</button>)
-                    }
-                </div> */}
-
-export default Product;
+export default React.memo(Product);
