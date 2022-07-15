@@ -4,7 +4,8 @@ import "./index.css"
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination, Navigation } from "swiper";
+import "swiper/css/navigation";
+import { Pagination, Navigation, Autoplay } from "swiper";
 
 function Main(){
 
@@ -26,12 +27,18 @@ function Main(){
     return <div className="row">
                 <div className="col-12 --p0">
                     <div className="swiper-container">
-                        <Swiper pagination={true} navigation={true} modules={[Pagination, Navigation]} className="mySwiper p-3">
+                        <Swiper autoplay={{delay: 3000, disableOnInteraction: true,}}
+                                pagination={{
+                                clickable: true,
+                                }}
+                                navigation={true}
+                                modules={[Autoplay, Pagination, Navigation]} className="mySwiper p-3"
+                                >
                             {banners.map((banner, index) => {
                                 return <SwiperSlide key={banner.id}>
                                             <div className="swiper-slide-container row">
                                                 {index % 2 === 0 &&
-                                                    <div className="col-9">
+                                                    <div className="col-9 panel-content">
                                                         <img src={banner.photo} className="swiper-img shadow-lg"></img>
                                                     </div>
                                                 }
@@ -67,4 +74,4 @@ function Main(){
             </div>
 }
 
-export default Main;
+export default React.memo(Main);

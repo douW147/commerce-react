@@ -42,10 +42,10 @@ function Navbar() {
                 <div className="navbar-nav mr-auto space-between">
                     <div className="items">
                         <li className="nav-item">
-                            <NavLink to="/dashboard" className="nav-link" activeClassName="active">Dashboard</NavLink>
+                            <NavLink to="/store" className="nav-link" activeClassName="active">Товари</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/store" className="nav-link" activeClassName="active">Store</NavLink>
+                            <NavLink to="/dashboard" className="nav-link" activeClassName="active">Корзина</NavLink>
                         </li>
                         {(currentUser.isLoggedIn && currentUser.userRole === "admin") &&
                         <li className="nav-item">

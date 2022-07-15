@@ -9,6 +9,7 @@ import {HashRouter, Route, Switch} from "react-router-dom";
 import Navbar from './components/navbar/Navbar.jsx';
 import Products from "./components/Products/Products.jsx";
 import {useSelector} from "react-redux"
+import "swiper/css/bundle";
 
 function App() {
 

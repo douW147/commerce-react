@@ -106,3 +106,11 @@
     color: #fff;
     font-size: 1.2rem;
 }
+
+.swiper-button-prev{
+    color:rgba(26, 26, 37, 1)!important
+}
+
+.swiper-button-next{
+    color:rgba(26, 26, 37, 1)!important
+}
