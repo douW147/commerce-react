@@ -2,8 +2,12 @@ import React, {useState, useEffect, useRef, useContext} from "react";
 import "./index.css";
 import { useDispatch } from 'react-redux';
 import userSlice from "../../slices/userSlice.js";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+
 
 function Register(props) {
+    const [show, setShow] = useState(false);
 
     const [state, setState] = useState({
         email: "",
@@ -46,7 +50,7 @@ function Register(props) {
     }, []);
 
     useEffect(() => {
-        myEmailRef.current.focus();
+        // myEmailRef.current.focus();
     },[])
 
     useEffect(() => {
@@ -56,6 +60,9 @@ function Register(props) {
             validateFields();
         }
     }, [state]);    
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const onChangeHandler = (event) => {
         setState({...state, [event.target.name]: event.target.value})
@@ -327,6 +334,19 @@ function Register(props) {
                         </div>
                     </div>
                 </form>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                    <Modal.Title>On login modal</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        Login
+                    </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         </div>
     )

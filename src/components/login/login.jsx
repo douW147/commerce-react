@@ -126,7 +126,7 @@ function Login(props) {
                                     id="email"
                                     name="email"
                                     value={email}
-                                    placeholder="Ваша почта"
+                                    placeholder="Ваша пошта"
                                     className="form-control"
                                     onChange={(event) => {setEmail(event.target.value)}}
                                     onBlur={() => {
@@ -160,9 +160,9 @@ function Login(props) {
                                 </div>
                             </div>
                             <div className="card-footer mb-4">
-                                <Link to="/register" className="btn btn-dark">Зарегестрироваться</Link>
+                                <Link to="/register" className="btn btn-dark">Зареєструватися</Link>
                                 {user.status === "pending" && <div id="loading"></div>}
-                                <button onClick={(event) => {onLogin(); event.preventDefault();}} type="submit" className="btn btn-dark">Войти</button>
+                                <button onClick={(event) => {onLogin(); handleShow(); event.preventDefault();}} type="submit" className="btn btn-dark">Увійти</button>
                             </div>
                         </form>
                 </div>
