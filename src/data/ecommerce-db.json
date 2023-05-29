@@ -39,6 +39,8 @@
     {
       "id": 1,
       "productName": "Сорочка",
+      "categoryName": "Mobile",
+      "brandName": "Apple",
       "price": 500,
       "cloType": 1,
       "size": "xs",
@@ -49,11 +51,15 @@
       "details2": "пукшщопшщзоукшщопшошщчашщзооопьлкзухпокшщуопшщшишщтшщуктщизцукшихуткиткути",
       "new": false,
       "sale": false,
-      "photos": ["https://fashion-ua.com.ua/img/uploads/5962/premed/2021-04-03_18_23_53469tr_med.jpg"]
+      "photos": [
+        "https://fashion-ua.com.ua/img/uploads/5962/premed/2021-04-03_18_23_53469tr_med.jpg"
+      ]
     },
     {
       "id": 2,
       "productName": "Apple iPhone",
+      "categoryName": "Mobile",
+      "brandName": "Apple",
       "price": 8900,
       "cloType": 1,
       "size": 1,
@@ -64,11 +70,15 @@
       "details2": "пукшщопшщзоукшщопшошщчашщзооопьлкзухпокшщуопшщшишщтшщуктщизцукшихуткиткути",
       "new": false,
       "sale": false,
-      "photos": ["https://static.wixstatic.com/media/cbf1f1_de61ae420b8640a8b0176d6290af3c48~mv2.jpg/v1/fill/w_500,h_667,al_c,q_85,usm_0.66_1.00_0.01/cbf1f1_de61ae420b8640a8b0176d6290af3c48~mv2.webp"]
+      "photos": [
+        "https://static.wixstatic.com/media/cbf1f1_de61ae420b8640a8b0176d6290af3c48~mv2.jpg/v1/fill/w_500,h_667,al_c,q_85,usm_0.66_1.00_0.01/cbf1f1_de61ae420b8640a8b0176d6290af3c48~mv2.webp"
+      ]
     },
     {
       "id": 3,
       "productName": "Apple iPhone",
+      "categoryName": "Mobile",
+      "brandName": "Apple",
       "price": 8900,
       "cloType": 1,
       "size": 1,
@@ -79,11 +89,15 @@
       "details2": "пукшщопшщзоукшщопшошщчашщзооопьлкзухпокшщуопшщшишщтшщуктщизцукшихуткиткути",
       "new": false,
       "sale": false,
-      "photos": ["https://static.wixstatic.com/media/cbf1f1_9a2588e2603a498698fef51badf91fa6~mv2.jpg/v1/fill/w_500,h_667,al_c,q_85,usm_0.66_1.00_0.01/cbf1f1_9a2588e2603a498698fef51badf91fa6~mv2.webp"]
+      "photos": [
+        "https://static.wixstatic.com/media/cbf1f1_9a2588e2603a498698fef51badf91fa6~mv2.jpg/v1/fill/w_500,h_667,al_c,q_85,usm_0.66_1.00_0.01/cbf1f1_9a2588e2603a498698fef51badf91fa6~mv2.webp"
+      ]
     },
     {
       "id": 4,
       "productName": "Apple iPhone",
+      "categoryName": "Mobile",
+      "brandName": "Apple",
       "price": 8900,
       "cloType": 1,
       "size": 1,
@@ -94,11 +108,15 @@
       "details2": "пукшщопшщзоукшщопшошщчашщзооопьлкзухпокшщуопшщшишщтшщуктщизцукшихуткиткути",
       "new": false,
       "sale": false,
-      "photos": ["https://static.wixstatic.com/media/cbf1f1_7861d8b2cfc74081857ee4ecb83e6777~mv2.jpg/v1/fill/w_500,h_667,al_c,q_85,usm_0.66_1.00_0.01/cbf1f1_7861d8b2cfc74081857ee4ecb83e6777~mv2.webp"]
+      "photos": [
+        "https://static.wixstatic.com/media/cbf1f1_7861d8b2cfc74081857ee4ecb83e6777~mv2.jpg/v1/fill/w_500,h_667,al_c,q_85,usm_0.66_1.00_0.01/cbf1f1_7861d8b2cfc74081857ee4ecb83e6777~mv2.webp"
+      ]
     },
     {
       "id": 5,
       "productName": "Apple iPhone",
+      "categoryName": "Mobile",
+      "brandName": "Apple",
       "price": 8900,
       "cloType": 1,
       "size": 1,
@@ -109,11 +127,15 @@
       "details2": "пукшщопшщзоукшщопшошщчашщзооопьлкзухпокшщуопшщшишщтшщуктщизцукшихуткиткути",
       "new": false,
       "sale": false,
-      "photos": ["https://static.wixstatic.com/media/cbf1f1_e0277c762c2544bf9b1d22a943dc82cb~mv2.jpg/v1/fill/w_500,h_750,al_c,q_85,usm_0.66_1.00_0.01/cbf1f1_e0277c762c2544bf9b1d22a943dc82cb~mv2.webp"]
+      "photos": [
+        "https://static.wixstatic.com/media/cbf1f1_e0277c762c2544bf9b1d22a943dc82cb~mv2.jpg/v1/fill/w_500,h_750,al_c,q_85,usm_0.66_1.00_0.01/cbf1f1_e0277c762c2544bf9b1d22a943dc82cb~mv2.webp"
+      ]
     },
     {
       "id": 6,
       "productName": "Apple iPhone",
+      "categoryName": "Mobile",
+      "brandName": "Apple",
       "price": 8900,
       "cloType": 1,
       "size": 1,
@@ -124,11 +146,15 @@
       "details2": "пукшщопшщзоукшщопшошщчашщзооопьлкзухпокшщуопшщшишщтшщуктщизцукшихуткиткути",
       "new": false,
       "sale": false,
-      "photos": ["https://static.wixstatic.com/media/cbf1f1_a55b7ae1e93d49aa88861c27448d7138~mv2.jpg/v1/fill/w_500,h_667,al_c,q_85,usm_0.66_1.00_0.01/cbf1f1_a55b7ae1e93d49aa88861c27448d7138~mv2.webp"]
+      "photos": [
+        "https://static.wixstatic.com/media/cbf1f1_a55b7ae1e93d49aa88861c27448d7138~mv2.jpg/v1/fill/w_500,h_667,al_c,q_85,usm_0.66_1.00_0.01/cbf1f1_a55b7ae1e93d49aa88861c27448d7138~mv2.webp"
+      ]
     },
     {
       "id": 7,
       "productName": "Apple iPhone",
+      "categoryName": "Mobile",
+      "brandName": "Apple",
       "price": 8900,
       "cloType": 1,
       "size": 1,
@@ -139,11 +165,15 @@
       "details2": "пукшщопшщзоукшщопшошщчашщзооопьлкзухпокшщуопшщшишщтшщуктщизцукшихуткиткути",
       "new": false,
       "sale": false,
-      "photos": ["https://static.wixstatic.com/media/cbf1f1_1de50bb030774fd0bd9c433015b60dcd~mv2.jpg/v1/fill/w_500,h_667,al_c,q_85,usm_0.66_1.00_0.01/cbf1f1_1de50bb030774fd0bd9c433015b60dcd~mv2.webp"]
+      "photos": [
+        "https://static.wixstatic.com/media/cbf1f1_1de50bb030774fd0bd9c433015b60dcd~mv2.jpg/v1/fill/w_500,h_667,al_c,q_85,usm_0.66_1.00_0.01/cbf1f1_1de50bb030774fd0bd9c433015b60dcd~mv2.webp"
+      ]
     },
     {
       "id": 8,
       "productName": "Apple iPhone",
+      "categoryName": "Mobile",
+      "brandName": "Apple",
       "price": 8900,
       "cloType": 1,
       "size": 1,
@@ -154,7 +184,9 @@
       "details2": "пукшщопшщзоукшщопшошщчашщзооопьлкзухпокшщуопшщшишщтшщуктщизцукшихуткиткути",
       "new": false,
       "sale": false,
-      "photos": ["https://static.wixstatic.com/media/cbf1f1_5d03314f74cf426fb18b3e374d2800ea~mv2.jpg/v1/fill/w_500,h_667,al_c,q_85,usm_0.66_1.00_0.01/cbf1f1_5d03314f74cf426fb18b3e374d2800ea~mv2.webp"]
+      "photos": [
+        "https://static.wixstatic.com/media/cbf1f1_5d03314f74cf426fb18b3e374d2800ea~mv2.jpg/v1/fill/w_500,h_667,al_c,q_85,usm_0.66_1.00_0.01/cbf1f1_5d03314f74cf426fb18b3e374d2800ea~mv2.webp"
+      ]
     }
   ],
   "users": [
@@ -171,7 +203,7 @@
     },
     {
       "email": "sashok1111122222@gmail.com",
-      "password": "Cupofcoffe1",
+      "password": "Password1",
       "fullName": "Olexandr",
       "dateOfBirth": "2003-07-25",
       "gender": "male",
@@ -179,50 +211,6 @@
       "receiveNewsLetters": false,
       "id": 1,
       "role": "user"
-    },
-    {
-      "email": "1@gmail.com",
-      "password": "12345678Lo9x",
-      "fullName": "Lox",
-      "dateOfBirth": "2022-05-06",
-      "gender": "female",
-      "country": "Uk",
-      "receiveNewsLetters": false,
-      "id": 3,
-      "role": "user"
-    },
-    {
-      "email": "Admin@gmail.com",
-      "password": "Admin123",
-      "fullName": "Lox",
-      "dateOfBirth": "2022-05-06",
-      "gender": "female",
-      "country": "Uk",
-      "receiveNewsLetters": false,
-      "id": 4,
-      "role": "admin"
-    },
-    {
-      "email": "test@gmail.com",
-      "password": "Test12345",
-      "fullName": "Test",
-      "dateOfBirth": "2022-06-01",
-      "gender": "male",
-      "country": "USA",
-      "receiveNewsLetters": false,
-      "role": "user",
-      "id": 5
-    },
-    {
-      "email": "lox@gng.com",
-      "password": "Lox123456789",
-      "fullName": "Loshara",
-      "dateOfBirth": "2022-07-08",
-      "gender": "male",
-      "country": "Uk",
-      "receiveNewsLetters": false,
-      "role": "user",
-      "id": 6
     }
   ],
   "orders": [

@@ -1,6 +1,5 @@
-import { loginUserThunk, logoutUserThunk } from "../thunks/userthunk";
-import initialUser from "../data/user";
-import {v4 as uuid} from "uuid"
+import { loginUserThunk } from "../thunks/userthunk";
+import  {v4 as uuid } from "uuid"
 
 const userReducer = {
     login: (state, action) => {

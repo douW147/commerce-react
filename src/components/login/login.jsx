@@ -114,7 +114,7 @@ function Login(props) {
             <div className="col-lg-5 col-md-7 mx-auto">
                 <div className="card shadow-lg my-2">
                     <div className="card-header">
-                        <h4 className="text-center">Вход в личный кабинет</h4>
+                        <h4 className="text-center">Вхід в особистий кабінет</h4>
                     </div>
                         <form>
                             <div className="card-body">

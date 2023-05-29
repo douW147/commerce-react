@@ -61,46 +61,46 @@ function Register(props) {
         setState({...state, [event.target.name]: event.target.value})
     }
 
-    const validateFields = (pass) => {
+    const validateFields = () => {
         let errorsData = {};
         const email_regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{1,})$/i;
         const password_regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
         errorsData.email = [];
         if (state.email.length === 0){
-            errorsData.email.push("Поле не может быть пустым")
+            errorsData.email.push("Поле не может бути порожнім")
         } else {
             if(!email_regex.test(state.email)){
-                errorsData.email.push("Email введен не правильно")
+                errorsData.email.push("Email введений не правильно")
             }
         }
 
         errorsData.password = [];
         if (!state.password){
-            errorsData.password.push("Поле не может быть пустым")
+            errorsData.password.push("Поле не может бути порожнім")
         } else {
             if(!password_regex.test(state.password)){
-                errorsData.password.push("Пароль должен иметь хотя бы одну цифру и большую букву")
+                errorsData.password.push("Пароль повинен мати хоча б одну цифру і велику літеру")
             }
         }
 
         errorsData.name = [];
         if (!state.name){
-            errorsData.name.push("Поле не может быть пустым")
+            errorsData.name.push("Поле не может бути порожнім")
         }
 
         errorsData.date = [];
         if (!state.date){
-            errorsData.date.push("Поле не может быть пустым")
+            errorsData.date.push("Поле не может бути порожнім")
         }
 
         errorsData.gender = [];
         if (!state.gender){
-            errorsData.gender.push("Поле не может быть пустым")
+            errorsData.gender.push("Поле не может бути порожнім")
         }
 
         errorsData.country = [];
         if (!state.country){
-            errorsData.country.push("Поле не может быть пустым")
+            errorsData.country.push("Поле не может бути порожнім")
         }
         setErrors(errorsData);
     }
@@ -173,7 +173,7 @@ function Register(props) {
                 <form>
                     <div className="card shadow">
                         <div className="card-header mt-1">
-                            <h2>Регистрация</h2>
+                            <h2>Реєстрація</h2>
                         </div>
                         <div className="card-body border-bottom">
 
@@ -323,7 +323,7 @@ function Register(props) {
                             {message}
                         </div>
                         <div className="card-footer float-right">
-                            <button className="btn btn-dark" type="submit" onClick={(event) => {onSubmit(); event.preventDefault();}}>Зарегистрироваться</button>
+                            <button className="btn btn-dark" type="submit" onClick={(event) => {onSubmit(); event.preventDefault();}}>Зареєструватися</button>
                         </div>
                     </div>
                 </form>

@@ -67,8 +67,8 @@ function Products() {
                                     <td>{prod.id}</td>
                                     <td>{prod.productName}</td>
                                     <td>{prod.price}</td>
-                                    <td>{prod.brand.brandName}</td>
-                                    <td>{prod.category.categoryName}</td>
+                                    <td>{prod.brandName}</td>
+                                    <td>{prod.categoryName}</td>
                                     <td><h5 className="width-auto">{Array(prod.rating).fill(0).map((elem,ind) => {return <i key={ind} className="fa fa-solid fa-star"></i>})}
                                         {Array(5 - prod.rating).fill(0).map((elem,ind) => {return <i key={ind} className="fa fa-solid fa-star-o"></i>})}</h5>
                                     </td>
