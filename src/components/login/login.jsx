@@ -162,7 +162,7 @@ function Login(props) {
                             <div className="card-footer mb-4">
                                 <Link to="/register" className="btn btn-dark">Зареєструватися</Link>
                                 {user.status === "pending" && <div id="loading"></div>}
-                                <button onClick={(event) => {onLogin(); handleShow(); event.preventDefault();}} type="submit" className="btn btn-dark">Увійти</button>
+                                <button onClick={(event) => {onLogin(); event.preventDefault();}} type="submit" className="btn btn-dark">Увійти</button>
                             </div>
                         </form>
                 </div>
